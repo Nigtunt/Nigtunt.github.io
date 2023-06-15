@@ -1,0 +1,220 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>vue-cli脚手架 | Nigtunt</title><meta name="description" content="vue-cli脚手架"><meta name="keywords" content="vue脚手架,vuecli"><meta name="author" content="Nigtunt"><meta name="copyright" content="Nigtunt"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="vue-cli脚手架"><meta name="twitter:description" content="vue-cli脚手架"><meta name="twitter:image" content="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3647749389,4229608440&amp;fm=26&amp;gp=0.jpg"><meta property="og:type" content="article"><meta property="og:title" content="vue-cli脚手架"><meta property="og:url" content="https://nigtunt.github.io/2020/05/26/vue-cli%E8%84%9A%E6%89%8B%E6%9E%B6/"><meta property="og:site_name" content="Nigtunt"><meta property="og:description" content="vue-cli脚手架"><meta property="og:image" content="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3647749389,4229608440&amp;fm=26&amp;gp=0.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'false'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="https://nigtunt.github.io/2020/05/26/vue-cli%E8%84%9A%E6%89%8B%E6%9E%B6/"><link rel="prev" title="vuex状态管理" href="https://nigtunt.github.io/2020/05/26/vuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/"><link rel="next" title="async和await的使用" href="https://nigtunt.github.io/2020/05/25/async%E5%92%8Cawait%E7%9A%84%E4%BD%BF%E7%94%A8/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'true',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  copyright: undefined,
+  copy_copyright_js: false,
+  ClickShowText: undefined,
+  medium_zoom: 'false',
+  Snackbar: undefined
+  
+}</script><meta name="generator" content="Hexo 4.2.1"></head><body><canvas class="fireworks"></canvas><div id="header"> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Nigtunt</a></span><i class="fa fa-bars fa-fw toggle-menu pull_right close" aria-hidden="true"></i><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></span><span class="pull_right" id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lazyload avatar_img" src="https://yhaq.top/group1/M00/00/00/head.png" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">132</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">37</div></a></div></div><div class="mobile_data_item is_center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">15</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#vue-cli"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">vue-cli</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#介绍和安装"><span class="toc_mobile_items-number">1.1.</span> <span class="toc_mobile_items-text">介绍和安装</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#项目插件及依赖的配置管理"><span class="toc_mobile_items-number">1.1.1.</span> <span class="toc_mobile_items-text">项目插件及依赖的配置管理</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#单文件组件"><span class="toc_mobile_items-number">1.1.2.</span> <span class="toc_mobile_items-text">单文件组件</span></a></li></ol></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#vue-cli的使用"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">vue-cli的使用</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#首先可以安装一个element组件库"><span class="toc_mobile_items-number">2.1.</span> <span class="toc_mobile_items-text">首先可以安装一个element组件库</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#组件懒加载和路由重定向"><span class="toc_mobile_items-number">2.2.</span> <span class="toc_mobile_items-text">组件懒加载和路由重定向</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#路由重定向"><span class="toc_mobile_items-number">2.2.1.</span> <span class="toc_mobile_items-text">路由重定向</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#路由组件的懒加载"><span class="toc_mobile_items-number">2.2.2.</span> <span class="toc_mobile_items-text">路由组件的懒加载</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#嵌套路由和动态路由"><span class="toc_mobile_items-number">2.3.</span> <span class="toc_mobile_items-text">嵌套路由和动态路由</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#一、什么是嵌套路由"><span class="toc_mobile_items-number">2.3.1.</span> <span class="toc_mobile_items-text">一、什么是嵌套路由</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#二、嵌套路由的实现"><span class="toc_mobile_items-number">2.3.2.</span> <span class="toc_mobile_items-text">二、嵌套路由的实现</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#三、需要特别记忆理解的规则"><span class="toc_mobile_items-number">2.3.3.</span> <span class="toc_mobile_items-text">三、需要特别记忆理解的规则</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#四、默认子路由"><span class="toc_mobile_items-number">2.3.4.</span> <span class="toc_mobile_items-text">四、默认子路由</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#五、动态路由"><span class="toc_mobile_items-number">2.3.5.</span> <span class="toc_mobile_items-text">五、动态路由</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#实现一个动态路由的例子"><span class="toc_mobile_items-number">2.3.5.1.</span> <span class="toc_mobile_items-text">实现一个动态路由的例子</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#动态路由的多段匹配"><span class="toc_mobile_items-number">2.3.5.2.</span> <span class="toc_mobile_items-text">动态路由的多段匹配</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#动态路由的正则匹配"><span class="toc_mobile_items-number">2.3.5.3.</span> <span class="toc_mobile_items-text">动态路由的正则匹配</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#编程式导航的例子"><span class="toc_mobile_items-number">2.3.5.4.</span> <span class="toc_mobile_items-text">编程式导航的例子</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#编程式导航API详解"><span class="toc_mobile_items-number">2.3.5.5.</span> <span class="toc_mobile_items-text">编程式导航API详解</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div id="body-wrap"><div id="web_bg" data-type="photo"></div><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vue-cli"><span class="toc-number">1.</span> <span class="toc-text">vue-cli</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍和安装"><span class="toc-number">1.1.</span> <span class="toc-text">介绍和安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#项目插件及依赖的配置管理"><span class="toc-number">1.1.1.</span> <span class="toc-text">项目插件及依赖的配置管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单文件组件"><span class="toc-number">1.1.2.</span> <span class="toc-text">单文件组件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vue-cli的使用"><span class="toc-number">2.</span> <span class="toc-text">vue-cli的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#首先可以安装一个element组件库"><span class="toc-number">2.1.</span> <span class="toc-text">首先可以安装一个element组件库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件懒加载和路由重定向"><span class="toc-number">2.2.</span> <span class="toc-text">组件懒加载和路由重定向</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#路由重定向"><span class="toc-number">2.2.1.</span> <span class="toc-text">路由重定向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由组件的懒加载"><span class="toc-number">2.2.2.</span> <span class="toc-text">路由组件的懒加载</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#嵌套路由和动态路由"><span class="toc-number">2.3.</span> <span class="toc-text">嵌套路由和动态路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、什么是嵌套路由"><span class="toc-number">2.3.1.</span> <span class="toc-text">一、什么是嵌套路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、嵌套路由的实现"><span class="toc-number">2.3.2.</span> <span class="toc-text">二、嵌套路由的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、需要特别记忆理解的规则"><span class="toc-number">2.3.3.</span> <span class="toc-text">三、需要特别记忆理解的规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、默认子路由"><span class="toc-number">2.3.4.</span> <span class="toc-text">四、默认子路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、动态路由"><span class="toc-number">2.3.5.</span> <span class="toc-text">五、动态路由</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实现一个动态路由的例子"><span class="toc-number">2.3.5.1.</span> <span class="toc-text">实现一个动态路由的例子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#动态路由的多段匹配"><span class="toc-number">2.3.5.2.</span> <span class="toc-text">动态路由的多段匹配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#动态路由的正则匹配"><span class="toc-number">2.3.5.3.</span> <span class="toc-text">动态路由的正则匹配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编程式导航的例子"><span class="toc-number">2.3.5.4.</span> <span class="toc-text">编程式导航的例子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编程式导航API详解"><span class="toc-number">2.3.5.5.</span> <span class="toc-text">编程式导航API详解</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3647749389,4229608440&amp;fm=26&amp;gp=0.jpg)"><div id="post-info"><div id="post-title"><div class="posttitle">vue-cli脚手架</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-05-26<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-05-26</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/vue%E7%9B%B8%E5%85%B3/">vue相关</a></span><div class="post-meta-wordcount"><i class="fa fa-file-word-o post-meta__icon" aria-hidden="true"></i><span>字数总计: </span><span class="word-count">4k</span><span class="post-meta__separator">|</span><i class="fa fa-clock-o post-meta__icon" aria-hidden="true"></i><span>阅读时长: 12 分钟</span><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true">       </i><span>阅读量: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><html><head></head><body><h1 id="vue-cli"><a href="#vue-cli" class="headerlink" title="vue-cli"></a>vue-cli</h1><h2 id="介绍和安装"><a href="#介绍和安装" class="headerlink" title="介绍和安装"></a>介绍和安装</h2><p>在开发中，需要打包的东西不止是js、css、html。还有更多的东西要处理，这些插件和加载器如果我们一一去添加就会比较麻烦。</p>
+<p>幸好，vue官方提供了一个快速搭建vue项目的脚手架：vue-cli</p>
+<p>使用它能快速的构建一个web工程模板。</p>
+<p>官网：<a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">https://github.com/vuejs/vue-cli</a></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @vue/cli</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这里使用vue-cli3.0以上的ui来创建项目</p>
+<p><img alt="image-20200526123618742" data-src="https://t1.picb.cc/uploads/2020/05/26/t2ZVOF.png" class="lazyload"></p>
+<p>首先，我们在命令行窗口，输入如下命令:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue ui</span><br></pre></td></tr></tbody></table></figure>
+
+<p>回车之后，会为我们启动一个web界面的项目管理器，如下图所示：</p>
+<p><img alt="image-20200526123328796" data-src="https://t1.picb.cc/uploads/2020/05/26/t2ZgRr.png" class="lazyload"></p>
+<p>设置项目名以及包管理器</p>
+<p><img alt="image-20200526123745821" data-src="https://t1.picb.cc/uploads/2020/05/26/t2ZZH0.png" class="lazyload"></p>
+<p>选择手动配置项目</p>
+<p><img alt="image-20200526130030813" data-src="https://t1.picb.cc/uploads/2020/05/26/t2Zw01.png" class="lazyload"></p>
+<p>选择需要安装的预设功能（之后可以手动添加）</p>
+<p><img alt="image-20200526130145462" data-src="https://t1.picb.cc/uploads/2020/05/26/t2Zfdd.png" class="lazyload"></p>
+<p>配置ESLint</p>
+<p><img alt="image-20200526130306010" data-src="https://t1.picb.cc/uploads/2020/05/26/t2ZiNu.png" class="lazyload"></p>
+<p>完成创建，可以保存预设。然后点击创建</p>
+<p><img alt="image-20200526130352242" data-src="https://t1.picb.cc/uploads/2020/05/26/t2ZnsD.png" class="lazyload"></p>
+<h3 id="项目插件及依赖的配置管理"><a href="#项目插件及依赖的配置管理" class="headerlink" title="项目插件及依赖的配置管理"></a>项目插件及依赖的配置管理</h3><p>项目创建完成之后，在项目Tab就会有对应的项目列表，点击列表项进入项目管理界面。<br><img alt="image-20200526130726255" data-src="https://t1.picb.cc/uploads/2020/05/26/t2Zrcg.png" class="lazyload"><br>大家注意上图界面左侧菜单栏里面的选项，我们依次为大家解释一下，对应菜单项目的含义：</p>
+<ul>
+<li>插件：插件是相对于Vue CLI而言的，这些插件用于项目的配置管理工作。如果我们需要添加新的插件，就点击右上角的“添加插件”按钮。在弹出框内搜索对应的插件，安装即可。</li>
+</ul>
+<p><img alt="image-20200526130754075" data-src="https://t1.picb.cc/uploads/2020/05/26/t2ZMiy.png" class="lazyload"></p>
+<ul>
+<li>依赖：依赖是相对于vue项目而言的，指我们项目开发过程中的第三方依赖库。如果我们需要添加新的依赖类库，就点击右上角的“安装依赖”按钮。在弹出框内搜索对应的依赖类库，安装即可。</li>
+</ul>
+<p><img alt="image-20200526130828302" data-src="https://t1.picb.cc/uploads/2020/05/26/t2ZpiM.png" class="lazyload"></p>
+<ul>
+<li>配置：Vue CLI的具体配置项，比如项目路径、CSS设置等，如果您不明白配置的具体含义，可以点击”查看详情”查看官方说明文档的解释内容。</li>
+</ul>
+<p><img alt="image-20200526131253198" data-src="https://t1.picb.cc/uploads/2020/05/26/t2ZSxF.png" class="lazyload"></p>
+<ul>
+<li>任务：项目代码的编译压缩、热部署、webpack等命令的运行及运行过程及结果监控。等同于命令行<code>vue run [serve|build|inspect]</code></li>
+</ul>
+<p><img alt="image-20200526131314138" data-src="https://t1.picb.cc/uploads/2020/05/26/t2Z9Qa.png" class="lazyload"></p>
+<p>安装好的项目结构：</p>
+<p><img alt="image-20200526131808493" data-src="https://t1.picb.cc/uploads/2020/05/26/t2wVDX.png" class="lazyload"></p>
+<h3 id="单文件组件"><a href="#单文件组件" class="headerlink" title="单文件组件"></a>单文件组件</h3><p>需要注意的是，我们看到有一类后缀名为.vue的文件，我们称为单文件组件</p>
+<p><img alt="image-20200526132205072" data-src="https://t1.picb.cc/uploads/2020/05/26/t2wfZc.png" class="lazyload"></p>
+<p>每一个.vue文件，就是一个独立的vue组件。类似于我们刚才写的login.js和register.js</p>
+<p>只不过，我们在js中编写 html模板和样式非常的不友好，而且没有语法提示和高亮。</p>
+<p>而单文件组件中包含三部分内容：</p>
+<ul>
+<li>template：模板，支持html语法高亮和提示</li>
+<li>script：js脚本，这里编写的就是vue的组件对象，还可以有data(){}等</li>
+<li>style：样式，支持CSS语法高亮和提示</li>
+</ul>
+<p>每个组件都有自己独立的html、JS、CSS，互不干扰，真正做到可独立复用。</p>
+<h1 id="vue-cli的使用"><a href="#vue-cli的使用" class="headerlink" title="vue-cli的使用"></a>vue-cli的使用</h1><h2 id="首先可以安装一个element组件库"><a href="#首先可以安装一个element组件库" class="headerlink" title="首先可以安装一个element组件库"></a>首先可以安装一个element组件库</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i element-ui -S</span><br></pre></td></tr></tbody></table></figure>
+
+<p>入口函数main.js</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span>;</span><br><span class="line"><span class="keyword">import</span> ElementUI <span class="keyword">from</span> <span class="string">'element-ui'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'element-ui/lib/theme-chalk/index.css'</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App.vue'</span>;</span><br><span class="line"></span><br><span class="line">Vue.use(ElementUI);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue({</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  render: <span class="function"><span class="params">h</span> =></span> h(App)</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="组件懒加载和路由重定向"><a href="#组件懒加载和路由重定向" class="headerlink" title="组件懒加载和路由重定向"></a>组件懒加载和路由重定向</h2><h3 id="路由重定向"><a href="#路由重定向" class="headerlink" title="路由重定向"></a>路由重定向</h3><p>上节我们实现的例子仍然存在一个问题，那就是当我们访问项目根路径时，Content内没有显示任何的router-view组件内容。我们点击了左侧菜单中的“我的”，右侧内容区才会显示：“这里是主页”，如下图：<br><img alt="image-20200526141853139" data-src="https://t1.picb.cc/uploads/2020/05/26/t2wIXN.png" class="lazyload"><br>但是一个正常的应用习惯，在访问项目时候Content区域就应该默认显示Home主页组件，那么应该怎样做呢？只需要按照下面的方法在router/index.js文件的路由规则配置加上一个路由的重定向配置：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  {</span><br><span class="line">     path:<span class="string">'/'</span>,              <span class="comment">//当访问根路径的时候</span></span><br><span class="line">     redirect:<span class="string">'/home'</span>        <span class="comment">// 重定向到redirect配置路径</span></span><br><span class="line">  },</span><br><span class="line">  {</span><br><span class="line">    path: <span class="string">'/home'</span>,</span><br><span class="line">    component: Home</span><br><span class="line">  },</span><br><span class="line">  {</span><br><span class="line">    path: <span class="string">'/about'</span>,</span><br><span class="line">    component: About</span><br><span class="line">  }</span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
+
+<p>此时当我们通过访问项目根路径”/“时候，就会重定向到“/home”显示Home主页内容：这里是主页。并且浏览器地址栏不再是根路径”/“，而是”/home”路径。路由路径path与页面显示组件内容是统一的。</p>
+<h3 id="路由组件的懒加载"><a href="#路由组件的懒加载" class="headerlink" title="路由组件的懒加载"></a>路由组件的懒加载</h3><p>在前面的章节，我们已经给大家讲解了什么是单页面应用（SPA）。我们也使用组件和前端路由开发了一个例子，所有的组件代码最终都将打包到一个js文件发布。当浏览器第一次访问应用时这个js被浏览器加载，并渲染出一个HTML视图。如图中红色边框的内容。<br><img alt="img" data-src="https://img.kancloud.cn/8c/48/8c480f08e613d00e780e68e345563104_677x257.png" class="lazyload"><br>大家有没有想过这样一个问题：所有的前端组件代码一次性加载，如果组件特别多的话有可能因为网络原因导致加载缓慢，从而出现页面白屏的现象。那么，我们能不能把组件按需加载呢？也就是说当组件被路由切换到的时候，再去加载。是可以的，这个实现的名字就叫做懒加载或者延迟加载。如图中黑色边框中的组件，可以适当的对其中一些组件进行懒加载。<br>那么什么样的组件最适合使用懒加载？就是那些使用频率相对较低的组件，比较适合使用懒加载。首屏组件不适合懒加载，比如：我们例子中的Home组件。</p>
+<p>大家可以看到在上图红色区域中，我们使用ES6语法对About组件实现了懒加载，代码如下：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> About = <span class="function"><span class="params">()</span> =></span><span class="keyword">import</span>( <span class="string">'../components/About'</span>)</span><br><span class="line">{</span><br><span class="line">    path: <span class="string">'/about'</span>,</span><br><span class="line">    name: <span class="string">'About'</span>,</span><br><span class="line">    <span class="comment">// route level code-splitting</span></span><br><span class="line">    <span class="comment">// this generates a separate chunk (about.[hash].js) for this route</span></span><br><span class="line">    <span class="comment">// which is lazy-loaded when the route is visited.</span></span><br><span class="line">    component: <span class="function"><span class="params">()</span> =></span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "about" */</span> <span class="string">'../views/About.vue'</span>),</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="嵌套路由和动态路由"><a href="#嵌套路由和动态路由" class="headerlink" title="嵌套路由和动态路由"></a>嵌套路由和动态路由</h2><h3 id="一、什么是嵌套路由"><a href="#一、什么是嵌套路由" class="headerlink" title="一、什么是嵌套路由"></a>一、什么是嵌套路由</h3><p>例子的内容很简单，当浏览器url路径切换到”/home”的时候显示Home主页组件，当浏览器url路径切换到”/about”的时候显示About关于组件，如下图中左侧的图示所示。那么在实际的开发中，路由的映射关系和网页视图不只是平面的，组件里面仍有子组件，路径下面还有子路径，如下图中的右侧的图示所示。<br><img alt="img" data-src="https://img.kancloud.cn/7c/b2/7cb2623a5f50ff9b3d562f24b0d03db6_1047x580.png" class="lazyload"><br>那么，我们这一节内容，就来讲一下嵌套路由与嵌套组件的之间的映射的一个例子。也就是说：</p>
+<ul>
+<li>当我们访问“/home/article”的时候，Home组件中的默认router-view显示Article文章组件</li>
+<li>当我们访问“/home/news”的时候，Home组件中的默认router-view显示News新闻组件</li>
+</ul>
+<h3 id="二、嵌套路由的实现"><a href="#二、嵌套路由的实现" class="headerlink" title="二、嵌套路由的实现"></a>二、嵌套路由的实现</h3><p>开发的套路仍然是三部曲：<br><strong>第一步：创建被路由的组件</strong><br>创建两个单文件组件，一个是Article.vue,一个是News.vue。两个组件的内容仍然很简单，模板里面分别写一个h1标题，书写不同的内容文本。为每一个组件起一个name，并将组件以模块的形式导出export default。<br><img alt="image-20200526143637196" data-src="https://t1.picb.cc/uploads/2020/05/26/t2wn2e.png" class="lazyload"><br><strong>第二步：配置组件与路由路径的映射关系</strong></p>
+<p><img alt="image-20200526143659165" data-src="https://t1.picb.cc/uploads/2020/05/26/t2wems.png" class="lazyload"></p>
+<ul>
+<li>首先需要将Article组件和News组件import到路由关系配置文件里面</li>
+<li>然后在上一节原home路由及组件的映射条目里面，加上children数组属性表示子路由组件之间的映射关系。</li>
+<li><strong>另外需要注意，子组件路由的path配置不要加斜杠“/”</strong></li>
+</ul>
+<p><strong>第三步：在父组件中加入router-view</strong><br>在上面的需求中，我们已经明确了文章组件Article和新闻组件News，都是Home组件的子组件。所以，我们在Home.vue文件中加入router-view。代码如下：</p>
+<p><img alt="image-20200526143756708" data-src="https://t1.picb.cc/uploads/2020/05/26/t2wuE6.png" class="lazyload"></p>
+<ul>
+<li>首先需要注意，当一个父组件有多个子组件的时候，要在template里面加上一个唯一的根标签。如图中的div#home。</li>
+<li>另外注意：路由router-link的to属性，需要写完整的路由路径，如：“/home/article”，不能写“/article”</li>
+</ul>
+<p>在上一节的代码的基础之上，最终实现效果如下：<br><img alt="image-20200526144506221" data-src="https://t1.picb.cc/uploads/2020/05/26/t2wcnT.png" class="lazyload"></p>
+<ul>
+<li>当点击“文章”的时候，显示：这里是文章组件</li>
+<li>当点击“新闻”的时候，显示：这里是新闻组件</li>
+</ul>
+<h3 id="三、需要特别记忆理解的规则"><a href="#三、需要特别记忆理解的规则" class="headerlink" title="三、需要特别记忆理解的规则"></a>三、需要特别记忆理解的规则</h3><ul>
+<li><strong>需要特别注意的一点是</strong>：根据不同的需求，router-link可以定义在任何组件内，不一定非要定义在对应的router-view的同一个父组件里面。只要router-link和router-view同时在浏览器内显示，在任何其他组件内触发router-link都会导致其对应的router-view发生组件切换。</li>
+<li><strong>那么什么是router-link对应的router-view？</strong><ul>
+<li>比如：to=”/home”对应的router-view，就是App.vue中定义的的router-view。</li>
+<li>比如：to=”/home/news”对应的router-view，就是Home.vue中定义的router-view。</li>
+</ul>
+</li>
+</ul>
+<h3 id="四、默认子路由"><a href="#四、默认子路由" class="headerlink" title="四、默认子路由"></a>四、默认子路由</h3><p>在上文的实现中，有一个问题，那就是当我们访问“/home”路径时，只显示出上图中的红色边框部分，没有显示出绿色边框的部分。也就是子组件不会默认显示出来，而是在点击了“文章”或“新闻”之后，对应的子组件才显示出来。<br><img alt="img" data-src="https://img.kancloud.cn/0f/01/0f01d4cfc921e0d28d5d39bfa2a6b72c_409x366.png" class="lazyload"><br>在代码中加入空字符串的path子路由配置，指向Article组件，这样当访问到“home”路径的时候就默认将Article组件显示出来了。</p>
+<h3 id="五、动态路由"><a href="#五、动态路由" class="headerlink" title="五、动态路由"></a>五、动态路由</h3><p>在实际的开发过程中，我们通常需要多个url匹配同一个路由和组件，如下图所示：<br><img alt="img" data-src="https://img.kancloud.cn/46/5e/465e03c72b7ce3cc3b040742d8a75ae6_919x523.png" class="lazyload"></p>
+<p>如上图所示，动态路由有如下2层含义：</p>
+<ul>
+<li>动态路由可以传递参数，如上图中的id，根据不同的参数组件可以显示不同的内容。如上图：传递参数1显示id=1的文章，传递2显示id=2的文章。</li>
+<li>动态路由可以实现路由导航，也就是匹配一个路由规则，从而显示该路由规则对应的组件。如上图中的Article组件的显示。</li>
+</ul>
+<h4 id="实现一个动态路由的例子"><a href="#实现一个动态路由的例子" class="headerlink" title="实现一个动态路由的例子"></a>实现一个动态路由的例子</h4><p>我们在上一节的代码基础上实现，实现上图所示的动态路由。首先，在router/index.js文件中修改组件与路由之间的映射关系配置，注意id是一个路由参数，前面需要加上冒号<br><img alt="image-20200526144603802" data-src="https://t1.picb.cc/uploads/2020/05/26/t2wm7M.png" class="lazyload"><br>Home组件是Article的父组件。修改Home.vue中的router-link，router-link默认渲染为html的超链接a标签，从而实现路由的触发。注意在路由中传递了参数id分别是1和2，用以匹配上图中的路由规则。<br><img alt="image-20200526144646544" data-src="https://t1.picb.cc/uploads/2020/05/26/t2w19t.png" class="lazyload"><br>Article组件是Home组件的子组件。在Article.vue中接收参数id，这里我们只显示一句话：这里是id=的文章组件。$route对象代表当前路由，params是代表参数，id是路由参数的名称，通过这种方式获取参数id的值。<br><img alt="img" data-src="https://img.kancloud.cn/ca/66/ca6637ea1ee83b23267c21d7fd00c735_563x159.png" class="lazyload"><br>实现效果如下：当点击”id=1的文章”时，组件内容显示：这里是id=1的文章组件；当点击”id=2的文章”时，组件内容显示：这里是id=2的文章组件；<br><img alt="image-20200526144819012" data-src="https://t1.picb.cc/uploads/2020/05/26/t2wH8r.png" class="lazyload"></p>
+<h4 id="动态路由的多段匹配"><a href="#动态路由的多段匹配" class="headerlink" title="动态路由的多段匹配"></a>动态路由的多段匹配</h4><ol>
+<li>/article/:id  /article/1  {id:1}  id=1的文章  /article/:id/reader/:num  /article/1/reader/2 </li>
+<li>{id:1,num:2}  id=1的文章的第2位读者信息</li>
+</ol>
+<p>如上表所示：第一条路由匹配是一个单段的路由匹配，第二个路由匹配是一个多段路由匹配。多段的路由匹配可以实现更为复杂的路由匹配规则和传递更多的参数，表达更为丰富的含义。</p>
+<h4 id="动态路由的正则匹配"><a href="#动态路由的正则匹配" class="headerlink" title="动态路由的正则匹配"></a>动态路由的正则匹配</h4><p>动态路由支持正则匹配，下面为大家举几个例子：</p>
+<ol>
+<li>/article/:id  参数id必须传，参数可以是数字也可以是字符串。即/article/1和//article/abc都匹配这个路由规则</li>
+<li>/article/:id?  参数id可以传，也可以不传。即/article/1和/article都匹配这个路由规则</li>
+<li>/article/:id(\d+)  参数id必须传，并且id只能是数字。如：/article/1</li>
+<li>/article/*  星号表示匹配任意路径，即：/article/abc和/article/abc/def都可以匹配这条路由规则</li>
+</ol>
+<p>当然，你可以根据自己的需求定义正则规则，正则规则可以千变万化。那么，一个url路径匹配了多个路由规则怎么办？答案是：哪个路由先定义的，哪个路由的匹配优先级就更高，所以在使用正则路由的时候要考虑好路由定义的先后顺序。</p>
+<h4 id="编程式导航的例子"><a href="#编程式导航的例子" class="headerlink" title="编程式导航的例子"></a>编程式导航的例子</h4><p>在之前的章节中，我们都是使用``的方式实现路由的导航与组件的切换，这种方式被称为<strong>声明式导航</strong>。在实际的开发过程中，我们还可以使用编程式导航的方式来实现（也就是通过j编写s代码的方式实现）。</p>
+<p><img alt="img" data-src="https://img.kancloud.cn/23/fc/23fccfbeccfd880186c55238bfbe757f_694x259.png" class="lazyload"></p>
+<p>上图是本专栏前面章节学习过的path路由规则和命名路由规则的示例图。下面就使用<strong>编程式导航</strong>来实现示例图所呈现的例子，需求就是：当点击‘/home’路由的标签元素展示用户主页面(组件Home)，当点击’/about’路由的标签元素展示”关于页面”(组件About)。<br><img alt="image-20200526145706647" data-src="https://t1.picb.cc/uploads/2020/05/26/t2w820.md.png" class="lazyload"></p>
+<ul>
+<li>上图中用编程式导航替换了声明式导航（图中绿色被注释掉的代码），</li>
+<li>图中黄色及红色框选代码为新增的编程式导航的代码。</li>
+<li>通过this.$router获取当前的路由实例，push方法实现路由导航</li>
+<li>实现需求就是：当点击‘/home’路由对应的按钮导航至用户主页面(组件Home)，当点击’/about’对应的按钮导航至”关于页面”(组件About)。</li>
+</ul>
+<p>从实现的代码量上看，似乎声明式导航比编程式导航更易用。但是在我们实际的应用开发过程中，编程式导航更容易实现复杂对象参数及变量参数的传递。如下图中的代码：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//编程式导航：命名路由的参数传递</span></span><br><span class="line">router.push({ <span class="attr">name</span>: <span class="string">'article'</span>, <span class="attr">params</span>: { <span class="attr">articleId</span>:<span class="string">'123'</span>}})    <span class="comment">// -> /article/123</span></span><br><span class="line"><span class="comment">//编程式导航：动态路由</span></span><br><span class="line"><span class="keyword">let</span> articleId = <span class="string">"123"</span>;</span><br><span class="line">router.push({ <span class="attr">path</span>: <span class="string">`/article/<span class="subst">${articleId}</span>`</span> })            <span class="comment">// -> /article/123</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在本专栏后面章节会详细介绍VueRouter的参数传递各种传递方式，本文接下来主要为大家介绍一下编程式导航的API。</p>
+<h4 id="编程式导航API详解"><a href="#编程式导航API详解" class="headerlink" title="编程式导航API详解"></a>编程式导航API详解</h4><p>VueRouter的编程式导航是通过三个方法来实现的：</p>
+<ul>
+<li>router.push方法：最常用的编程式路由导航方法</li>
+<li>router.replace方法</li>
+<li>router.go方法</li>
+</ul>
+<p>大家看到这三个方法有没有感觉到比较亲切？我们在之前给大家讲单页面应用的时候用到了这样的一张图：</p>
+<p><img alt="img" data-src="https://img.kancloud.cn/96/2b/962b105b91390f553f08c726474c4302_452x292.png" class="lazyload"><br>结合这张图，我们可以这样理解Vue页面视图组件的显示及路由导航：</p>
+<ul>
+<li>Vue维护着关于组件的栈的数据结构，一个栈类似于一个桶，默认情况下只有栈顶部的组件才被渲染到浏览器页面上</li>
+<li>当使用push方法导航一个组件时，组件被压入栈中，处于栈的最顶层。如上图中的上半部分，组件3压在组件2的上层，所以浏览器显示组件3。</li>
+<li>当使用replace方法导航一个组件时，该组件替换掉栈中最顶层的组件。如上图中下半部分，组件2换成组件3，所以浏览器显示组件3。</li>
+<li>默认情况下栈顶部的组件才被渲染到浏览器页面上，但是当使用go方法的时候，就是在调整栈的顶部指针，指针指到哪个组件哪个组件就被显示出来。go(正数值)是向栈的顶部移动，go(负数值)是向栈的底部移动。当正负值位移超出栈的容量时，go方法调用失败。</li>
+</ul>
+</body></html></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Nigtunt</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://nigtunt.github.io/2020/05/26/vue-cli%E8%84%9A%E6%89%8B%E6%9E%B6/">https://nigtunt.github.io/2020/05/26/vue-cli%E8%84%9A%E6%89%8B%E6%9E%B6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://nigtunt.github.io">Nigtunt</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/vue%E8%84%9A%E6%89%8B%E6%9E%B6/">vue脚手架    </a><a class="post-meta__tags" href="/tags/vuecli/">vuecli    </a></div><div class="post_share"><div class="social-share" data-image="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3647749389,4229608440&amp;fm=26&amp;gp=0.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button"><i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/wechat.jpg"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/alipay.jpg"><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2020/05/26/vuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/"><img class="prev_cover lazyload" data-src="http://yhaq.top/group1/M00/00/01/rBGWVV71neyAIlN_AABlDmy5sQc516.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">上一篇</div><div class="prev_info"><span>vuex状态管理</span></div></a></div><div class="next-post pull_right"><a href="/2020/05/25/async%E5%92%8Cawait%E7%9A%84%E4%BD%BF%E7%94%A8/"><img class="next_cover lazyload" data-src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1727875035,1058014352&amp;fm=26&amp;gp=0.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">下一篇</div><div class="next_info"><span>async和await的使用</span></div></a></div></nav></div></div><footer id="footer" style="background-image: url(https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3647749389,4229608440&amp;fm=26&amp;gp=0.jpg)"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Nigtunt</div><div class="framework-info"><span>驱动 </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://jerryc.me/" target="_blank" rel="noopener">blog</a>!</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="/js/search/local-search.js"></script><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="/js/third-party/fireworks.js"></script><script id="ribbon_piao" mobile="false" src="/js/third-party/piao.js"></script><script src="/js/baidupush.js"> </script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@3/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
